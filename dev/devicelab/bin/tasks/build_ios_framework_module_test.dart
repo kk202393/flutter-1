@@ -166,40 +166,16 @@ Future<void> _testBuildIosFramework(Directory projectDir, {bool isModule = false
       throw TaskResult.failure('$mode App.framework missing Dart AOT');
     }
 
-<<<<<<< HEAD
-    checkFileNotExists(path.join(
-      outputPath,
-      mode,
-      'App.xcframework',
-      'ios-arm64',
-      'App.framework',
-      'flutter_assets',
-      'vm_snapshot_data',
-    ));
-
-    final String dsymPath = path.join(
-=======
     checkFileNotExists(
       path.join(
->>>>>>> 35c388afb57ef061d06a39b537336c87e0e3d1b1
         outputPath,
         mode,
         'App.xcframework',
         'ios-arm64',
-<<<<<<< HEAD
-        'dSYMs'
-    );
-    checkDirectoryExists(dsymPath);
-
-    final String appFrameworkDsymPath = path.join(
-        dsymPath,
-        'App.framework.dSYM'
-=======
         'App.framework',
         'flutter_assets',
         'vm_snapshot_data',
       ),
->>>>>>> 35c388afb57ef061d06a39b537336c87e0e3d1b1
     );
 
     final String dsymPath = path.join(outputPath, mode, 'App.xcframework', 'ios-arm64', 'dSYMs');
@@ -207,21 +183,6 @@ Future<void> _testBuildIosFramework(Directory projectDir, {bool isModule = false
 
     final String appFrameworkDsymPath = path.join(dsymPath, 'App.framework.dSYM');
     checkDirectoryExists(appFrameworkDsymPath);
-<<<<<<< HEAD
-
-    if (Directory(dsymPath).listSync().whereType<Directory>().length != 1) {
-      throw TaskResult.failure('App.framework/dSYMs should ONLY contain App.xcframework.dSYM');
-    }
-
-    await _checkDsym(path.join(
-      appFrameworkDsymPath,
-      'Contents',
-      'Resources',
-      'DWARF',
-      'App',
-    ));
-=======
->>>>>>> 35c388afb57ef061d06a39b537336c87e0e3d1b1
 
     if (Directory(dsymPath).listSync().whereType<Directory>().length != 1) {
       throw TaskResult.failure('App.framework/dSYMs should ONLY contain App.xcframework.dSYM');
