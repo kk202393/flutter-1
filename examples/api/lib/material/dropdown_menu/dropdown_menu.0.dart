@@ -25,8 +25,26 @@ enum ColorLabel {
   const ColorLabel(this.label, this.color);
   final String label;
   final Color color;
+<<<<<<< HEAD
 }
 
+=======
+
+  static final List<ColorEntry> entries = UnmodifiableListView<ColorEntry>(
+    values.map<ColorEntry>(
+      (ColorLabel color) => ColorEntry(
+        value: color,
+        label: color.label,
+        enabled: color.label != 'Grey',
+        style: MenuItemButton.styleFrom(foregroundColor: color.color),
+      ),
+    ),
+  );
+}
+
+typedef IconEntry = DropdownMenuEntry<IconLabel>;
+
+>>>>>>> 35c388afb57ef061d06a39b537336c87e0e3d1b1
 // DropdownMenuEntry labels and values for the second dropdown menu.
 enum IconLabel {
   smile('Smile', Icons.sentiment_satisfied_outlined),
@@ -40,6 +58,15 @@ enum IconLabel {
   const IconLabel(this.label, this.icon);
   final String label;
   final IconData icon;
+<<<<<<< HEAD
+=======
+
+  static final List<IconEntry> entries = UnmodifiableListView<IconEntry>(
+    values.map<IconEntry>(
+      (IconLabel icon) => IconEntry(value: icon, label: icon.label, leadingIcon: Icon(icon.icon)),
+    ),
+  );
+>>>>>>> 35c388afb57ef061d06a39b537336c87e0e3d1b1
 }
 
 class DropdownMenuExample extends StatefulWidget {
@@ -58,10 +85,7 @@ class _DropdownMenuExampleState extends State<DropdownMenuExample> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: Colors.green,
-      ),
+      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.green),
       home: Scaffold(
         body: SafeArea(
           child: Column(
@@ -134,15 +158,12 @@ class _DropdownMenuExampleState extends State<DropdownMenuExample> {
                     Text('You selected a ${selectedColor?.label} ${selectedIcon?.label}'),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: Icon(
-                        selectedIcon?.icon,
-                        color: selectedColor?.color,
-                      ),
-                    )
+                      child: Icon(selectedIcon?.icon, color: selectedColor?.color),
+                    ),
                   ],
                 )
               else
-                const Text('Please select a color and an icon.')
+                const Text('Please select a color and an icon.'),
             ],
           ),
         ),

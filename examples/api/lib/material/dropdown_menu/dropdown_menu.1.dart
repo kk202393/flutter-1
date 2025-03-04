@@ -16,12 +16,10 @@ class DropdownMenuApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(useMaterial3:true),
+      theme: ThemeData(useMaterial3: true),
       home: Scaffold(
         appBar: AppBar(title: const Text('DropdownMenu Sample')),
-        body: const Center(
-          child: DropdownMenuExample(),
-        ),
+        body: const Center(child: DropdownMenuExample()),
       ),
     );
   }
@@ -34,6 +32,11 @@ class DropdownMenuExample extends StatefulWidget {
   State<DropdownMenuExample> createState() => _DropdownMenuExampleState();
 }
 
+<<<<<<< HEAD
+=======
+typedef MenuEntry = DropdownMenuEntry<String>;
+
+>>>>>>> 35c388afb57ef061d06a39b537336c87e0e3d1b1
 class _DropdownMenuExampleState extends State<DropdownMenuExample> {
   String dropdownValue = list.first;
 
